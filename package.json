@@ -1,0 +1,25 @@
+{
+  "name": "google-maps",
+  "version": "0.0.1",
+  "description": "Google Maps JavaScript Plugin",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonalvis/google-maps"
+  },
+  "bugs": {
+    "url": "https://github.com/jasonalvis/google-maps/issues"
+  },
+  "author": "Jason Alvis",
+  "homepage": "https://github.com/jasonalvis/google-maps",
+  "devDependencies": {
+    "browser-sync": "^2.12.5",
+    "eslint": "^2.13.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3"
+  }
+}
