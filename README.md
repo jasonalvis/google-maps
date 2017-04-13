@@ -118,7 +118,7 @@ var googleMap = new GoogleMaps(document.getElementById('map'), {
 // See whats available to us
 console.log(googleMap);
 
-// Set the new zoom to 15
+// Set the zoom to 15
 // For available Google Maps methods please refer to the documentation
 // https://developers.google.com/maps/documentation/javascript/reference
 googleMap.map.setZoom(15);
@@ -137,4 +137,4 @@ googleMap.scrollwheelMouseDown();
  - You must specify a zoom level on the `mapOptions` object
 
 ## Supports
-Supports IE9+
+IE9+
