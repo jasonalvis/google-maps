@@ -29,7 +29,8 @@
     locations: null,
     mapOptions: null,
     styles: null,
-    scrollwheelMouseDown: false
+    scrollwheelMouseDown: false,
+    resize: false
   };
 
   /**
@@ -172,6 +173,11 @@
     if(options.scrollwheelMouseDown) {
       _this.scrollwheelMouseDown();
     }
+
+    // Enable resize to re-center the map
+    if(options.resize) {
+      _this.resize();
+    }
   };
 
   /**
@@ -225,7 +231,42 @@
       // Set it to false on our options
       this.options.mapOptions.scrollwheel = false; 
     }   
-  };    
+  };   
+
+  /**
+   * Re-center the map on resize
+   * @public     
+   */
+  GoogleMaps.prototype.resize = function() {
+    var _this     = this;
+    var locations = _this.options.locations;
+
+    // Center the map dynamically between all the markers if more than 1 location
+    if(locations.length > 1) {
+      var latLngBounds = new google.maps.LatLngBounds();
+
+      locations.forEach(function(location) {
+        latLngBounds.extend(new google.maps.LatLng(location.latLng[0], location.latLng[1]));
+      });
+
+      // Set the center on resize
+      google.maps.event.addDomListener(window, 'resize', function() {
+        _this.map.fitBounds(latLngBounds);
+      });
+    } else {
+      var center;
+
+      // Get the center once the map has finished setting up
+      google.maps.event.addDomListener(_this.map, 'idle', function() {
+        center = _this.map.getCenter();      
+      });
+
+      // Set the center on resize
+      google.maps.event.addDomListener(window, 'resize', function() {
+        _this.map.setCenter(center);
+      });
+    }
+  };
 
   return GoogleMaps;
 

@@ -8,6 +8,7 @@ Vanilla JavaScript plugin to integrate Google Maps into your project with ease.
   - Marker content pop-ups
   - Map options, supports the full list of available [options](http://developers.google.com/maps/documentation/javascript/reference#MapOptions)
   - Map styling, recommend [snazzymaps.com](http://snazzymaps.com/)
+  - Re-center the map on resize
   - Enable scrollwheel zooming on the map only when the user clicks within the map. Disables scrollwheel again when returning to the window
   - Dynamically access the map and update as and when needed  
 
@@ -45,6 +46,9 @@ var googleMap = new GoogleMaps(document.getElementById('map'), {
 
   scrollwheelMouseDown: false
   // boolean set scrollwheel zoom of the map on mousedown
+
+  resize: false
+  // boolean re-center the map on resize if set to true
 }); 
 ```
 
@@ -74,7 +78,8 @@ var googleMap = new GoogleMaps(document.getElementById('map'), {
     scrollwheel: false
   },
   styles: [{'featureType':'water','elementType':'geometry','stylers':[{'color':'#e9e9e9'},{'lightness':17}]},{'featureType':'landscape','elementType':'geometry','stylers':[{'color':'#f5f5f5'},{'lightness':20}]},{'featureType':'road.highway','elementType':'geometry.fill','stylers':[{'color':'#ffffff'},{'lightness':17}]},{'featureType':'road.highway','elementType':'geometry.stroke','stylers':[{'color':'#ffffff'},{'lightness':29},{'weight':0.2}]},{'featureType':'road.arterial','elementType':'geometry','stylers':[{'color':'#ffffff'},{'lightness':18}]},{'featureType':'road.local','elementType':'geometry','stylers':[{'color':'#ffffff'},{'lightness':16}]},{'featureType':'poi','elementType':'geometry','stylers':[{'color':'#f5f5f5'},{'lightness':21}]},{'featureType':'poi.park','elementType':'geometry','stylers':[{'color':'#dedede'},{'lightness':21}]},{'elementType':'labels.text.stroke','stylers':[{'visibility':'on'},{'color':'#ffffff'},{'lightness':16}]},{'elementType':'labels.text.fill','stylers':[{'saturation':36},{'color':'#333333'},{'lightness':40}]},{'elementType':'labels.icon','stylers':[{'visibility':'off'}]},{'featureType':'transit','elementType':'geometry','stylers':[{'color':'#f2f2f2'},{'lightness':19}]},{'featureType':'administrative','elementType':'geometry.fill','stylers':[{'color':'#fefefe'},{'lightness':20}]},{'featureType':'administrative','elementType':'geometry.stroke','stylers':[{'color':'#fefefe'},{'lightness':17},{'weight':1.2}]}],
-  scrollwheelMouseDown: true
+  scrollwheelMouseDown: true,
+  resize: true
 }); 
 ```
 
