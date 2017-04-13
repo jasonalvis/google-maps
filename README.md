@@ -83,6 +83,8 @@ var googleMap = new GoogleMaps(document.getElementById('map'), {
 }); 
 ```
 
+There is a working example included in the [repo](http://github.com/jasonalvis/google-maps/blob/master/public/index.html).
+
 ### Markers explained
 The following options for the markers are available, for further details please view the [Google Maps API](https://developers.google.com/maps/documentation/javascript/markers#complex_icons) documentation.
 
@@ -113,15 +115,23 @@ var googleMap = new GoogleMaps(document.getElementById('map'), {
   ...
 });
 
+// See whats available to us
 console.log(googleMap);
 
 // Set the new zoom to 15
+// For available Google Maps methods please refer to the documentation
+// https://developers.google.com/maps/documentation/javascript/reference
 googleMap.map.setZoom(15);
+
+// Available built in methods
+googleMap.disableScrollwheel();
+googleMap.enableScrollwheel();
+googleMap.init();
+googleMap.resize();
+googleMap.scrollwheelMouseDown();
 ```
 
-All available methods can be found from the [Google Maps API](https://developers.google.com/maps/documentation/javascript/reference) documentation.
-
-### Required fields
+## Required fields
 
  - One location with `latLng`
  - You must specify a zoom level on the `mapOptions` object
