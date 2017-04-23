@@ -40,16 +40,23 @@
    * @param {Object} options User options
    * @returns {Object} Merged values of defaults and options
    */
-  var extend = function( defaults, options ) {
-    var property;
+  var extend = function ( defaults, options ) {
+    var extended = {};
+    var prop;
 
-    for (property in options) {
-      if (options.hasOwnProperty(property)) {
-        defaults[property] = options[property];
+    for (prop in defaults) {
+      if (Object.prototype.hasOwnProperty.call(defaults, prop)) {
+        extended[prop] = defaults[prop];
       }
     }
 
-    return defaults;
+    for (prop in options) {
+      if (Object.prototype.hasOwnProperty.call(options, prop)) {
+        extended[prop] = options[prop];
+      }
+    }
+
+    return extended;
   };
 
   /**
